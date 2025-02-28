@@ -78,35 +78,21 @@ The table below provides summary statistics for the numerical features in the da
 
 ---
 
-### **Key Insights**  
+**Key Insights**  
 
-1. **Age Distribution**  
-   - The borrowers’ ages range from **18 to 69 years**, with a median age of **43**.  
-   - 75% of borrowers are **below 56 years**, suggesting a middle-aged borrowing population.  
-
-2. **Income Levels**  
-   - The average income is **82,499**, but the distribution is quite spread, with a standard deviation of **38,963**.  
-   - The income distribution is skewed, with the lowest earners at **15,000** and the highest at **149,999**.  
-
-3. **Loan Amount & Credit Score**  
-   - The median loan amount is **127,556**, with a maximum of **249,999**.  
-   - Borrowers generally have a **moderate credit score** (median: **574**), with values ranging from **300 to 849**.  
-   - A quarter of borrowers have a **credit score below 437**, indicating a segment with potentially higher risk.  
-
-4. **Loan Terms & Interest Rates**  
-   - The median loan term is **36 months**, with the majority falling between **24 and 48 months**.  
-   - Interest rates vary significantly, with the highest at **25%**, possibly for riskier applicants.  
-
-5. **Debt-to-Income Ratio (DTI)**  
-   - The median **DTI ratio is 0.50**, meaning that **half of the borrowers allocate 50% of their income to debt repayment**.  
-   - Borrowers with **DTI > 0.70** may be at higher risk of default due to excessive debt obligations.  
-
-6. **Default Rate**  
-   - Only **11.6% (mean: 0.12)** of the borrowers have defaulted, suggesting a predominantly creditworthy population.  
-   - Most borrowers **(75%) have not defaulted**, but identifying patterns in the **11.6% who did** can help refine risk assessment models.  
-
+- **Age & Income**: Borrowers are mostly middle-aged (**median: 43**), with income widely spread (**median: 82,499**, max: **149,999**).  
+- **Loan Amount & Credit Score**: Median loan amount is **127,556**, with a moderate credit score (**median: 574**). **25% have scores below 437**, indicating higher risk.  
+- **Loan Terms & Interest Rates**: Most loans are for **24-48 months**, with interest rates reaching **25%** for riskier applicants.  
+- **Debt-to-Income Ratio (DTI)**: **Median DTI is 0.50**, meaning half of borrowers allocate **50% of income** to debt repayment. **DTI > 0.70** signals higher default risk.  
 
 ### Understanding Data Distribution:
+
+**Imbalance in distribution:** 
+
+![image](https://github.com/user-attachments/assets/6f6d1e1b-fe71-4e75-bf1d-0f10506c5136)
+
+- Non-defaulters make up **88.4%** of the dataset, while defaulters account for only **11.6%**.
+- This class imbalance may affect model performance, requiring techniques like oversampling, undersampling, or adjusting class weights.  
 
 ![image](https://github.com/user-attachments/assets/5ed9d880-2435-4f88-92c9-a8c04e9a4062)
 
@@ -123,10 +109,20 @@ The table below provides summary statistics for the numerical features in the da
 - **Higher interest rates** and **higher Debt-to-Income (DTI) ratios** correlate with more defaults.  
 - **Loan terms appear fixed at certain intervals**, with non-defaulters favoring shorter terms.  
 
+### Correlation Analysis
 
+![image](https://github.com/user-attachments/assets/a6d39d2a-84b7-40da-968d-ffc3d003d3ee)
 
-- **Correlation Analysis:**
-  - Identifying relationships between different variables.
+**Key Takeaways from Correlation Analysis**
+
+- **Age has the strongest negative correlation** (-0.168), meaning younger borrowers are more likely to default.  
+- **Interest Rate has the strongest positive correlation** (0.131), meaning higher interest rates correspond to more defaults.  
+- **Higher Loan Amounts** (0.087) slightly increase default risk due to a higher repayment burden.  
+- **Longer Employment Duration** (-0.097) reduces default risk, suggesting that job stability helps prevent defaults.  
+- **Higher Income** (-0.099) is associated with lower default risk, indicating that financially stable borrowers are less likely to default.  
+- **Credit Score** (-0.034) shows a weak negative correlation, meaning higher scores slightly reduce default probability.  
+- **Most correlations are weak to moderate**, implying that **default is influenced by multiple factors rather than a single one**.  
+
 - **Class Imbalance Handling:**
   - Addressing imbalanced datasets using techniques like SMOTE or weighted classification.
 - **Feature Engineering:**

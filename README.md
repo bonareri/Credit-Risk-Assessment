@@ -125,24 +125,65 @@ The table below provides summary statistics for the numerical features in the da
 
 ### Data Preprocessing
 
-- **Class Imbalance Handling:**
-  - Addressed class imbalance using techniques like SMOTE.
-- **Feature Engineering:**
-  - Creating new features and transforming existing ones for better model performance.
+- **Class Imbalance Handling:**  
+  - I addressed class imbalance using **SMOTE** to oversample the minority class and experimented with **class weighting** in model training.  
 
-## 6. Model Development
+- **Feature Engineering:**  
+  - Categorical variables were encoded using **One-Hot Encoding (OHE)** and **Label Encoding** where appropriate.  
+  - Numerical features were scaled using **StandardScaler** to ensure consistency across different models.
+  - Missing values were handled by dropping the rows with missing values, since the percentage of missing data was negligible. 
 
-- **Baseline Models:**
-  - Logistic Regression
-  - Decision Trees
-- **Advanced Models:**
-  - Random Forest
-  - XGBoost
-  - Neural Networks (Optional)
-- **Model Evaluation Metrics:**
-  - Accuracy
-  - Precision, Recall, and F1-score
-  - ROC-AUC Score
+## 6. Model Development  
+
+- **Baseline Models:**  
+  - I started with **Logistic Regression** to establish a simple benchmark.  
+  - I also used **Decision Trees** to gain insights into feature importance and model structure.  
+
+- **Advanced Models:**  
+  - **Random Forest** helped improve predictive performance through ensemble learning.  
+  - **XGBoost** was implemented to leverage boosting for higher accuracy and recall.  
+  - I experimented with **Support Vector Machines (SVM)** to evaluate non-linear decision boundaries.  
+
+- **Hyperparameter Tuning:**  
+  - I used **RandomizedSearchCV** and **GridSearchCV** to fine-tune key hyperparameters for each model.  
+  - For XGBoost, I enabled **early stopping** to prevent overfitting and improve generalization.  
+
+- **Model Evaluation:**  
+  - I compared models based on **accuracy, precision, recall, F1-score, and AUC-ROC**.  
+  - Since class imbalance was a concern, I paid close attention to **recall and F1-score** to ensure the minority class was well predicted.
+ 
+### Model Evaluation Summary
+
+Below is a summary of various models for classifying defaults, with a focus on recall and F1 score for the default (minority) class:
+
+| **Model**           | **Default Recall** | **Default F1 Score** |
+|---------------------|--------------------|----------------------|
+| Logistic Regression | 0.35               | 0.31                 |
+| Random Forest       | 0.18               | 0.25                 |
+| XGBoost             | 0.28               | 0.30                 |
+| Tuned XGBoost       | 0.58               | 0.36                 |
+
+## Summary
+
+- **Logistic Regression:**  
+  - Default Recall: 35%  
+  - F1 Score: 31%  
+
+- **Random Forest:**  
+  - Default Recall: 18%  
+  - F1 Score: 25%  
+
+- **XGBoost:**  
+  - Default Recall: 28%  
+  - F1 Score: 30%  
+
+- **Tuned XGBoost:**  
+  - Default Recall: 58%  
+  - F1 Score: 36%
+
+**Conclusion:**  
+The **Tuned XGBoost model** is the best choice for classifying defaults because it significantly improves the detection of default cases (58% recall) while maintaining a better balance between precision and recall (F1 score of 36%), which is critical for imbalanced classification tasks.
+
 
 ## 7. Future Improvements
 

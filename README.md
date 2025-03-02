@@ -121,10 +121,12 @@ The table below provides summary statistics for the numerical features in the da
 - **Longer Employment Duration** (-0.097) reduces default risk, suggesting that job stability helps prevent defaults.  
 - **Higher Income** (-0.099) is associated with lower default risk, indicating that financially stable borrowers are less likely to default.  
 - **Credit Score** (-0.034) shows a weak negative correlation, meaning higher scores slightly reduce default probability.  
-- **Most correlations are weak to moderate**, implying that **default is influenced by multiple factors rather than a single one**.  
+- **Most correlations are weak to moderate**, implying that **default is influenced by multiple factors rather than a single one**.
+
+### Data Preprocessing
 
 - **Class Imbalance Handling:**
-  - Addressing imbalanced datasets using techniques like SMOTE or weighted classification.
+  - Addressed class imbalance using techniques like SMOTE.
 - **Feature Engineering:**
   - Creating new features and transforming existing ones for better model performance.
 

@@ -136,17 +136,14 @@ The table below provides summary statistics for the numerical features in the da
 ## 6. Model Development  
 
 - **Baseline Models:**  
-  - I started with **Logistic Regression** to establish a simple benchmark.  
-  - I also used **Decision Trees** to gain insights into feature importance and model structure.  
+  - I started with **Logistic Regression** to establish a simple benchmark.    
 
 - **Advanced Models:**  
   - **Random Forest** helped improve predictive performance through ensemble learning.  
   - **XGBoost** was implemented to leverage boosting for higher accuracy and recall.  
-  - I experimented with **Support Vector Machines (SVM)** to evaluate non-linear decision boundaries.  
 
 - **Hyperparameter Tuning:**  
   - I used **RandomizedSearchCV** and **GridSearchCV** to fine-tune key hyperparameters for each model.  
-  - For XGBoost, I enabled **early stopping** to prevent overfitting and improve generalization.  
 
 - **Model Evaluation:**  
   - I compared models based on **accuracy, precision, recall, F1-score, and AUC-ROC**.  

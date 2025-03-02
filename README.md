@@ -156,30 +156,39 @@ The table below provides summary statistics for the numerical features in the da
 
 Below is a summary of various models for classifying defaults, with a focus on recall and F1 score for the default (minority) class:
 
-| **Model**           | **Default Recall** | **Default F1 Score** |
-|---------------------|--------------------|----------------------|
-| Logistic Regression | 0.35               | 0.31                 |
-| Random Forest       | 0.18               | 0.25                 |
-| XGBoost             | 0.28               | 0.30                 |
-| Tuned XGBoost       | 0.58               | 0.36                 |
+| Model              | Accuracy | Default Precision | Default Recall | Default F1-score |
+|--------------------|----------|-------------------|----------------|------------------|
+| Logistic Regression| 81.7%    | 0.28              | 0.35           | 0.31             |
+| Random Forest      | 86.9%    | 0.37              | 0.18           | 0.25             |
+| XGBoost            | 84.6%    | 0.32              | 0.28           | 0.30             |
+| Tuned XGBoost      | 76.0%    | 0.26              | 0.58           | 0.36             |
 
-## Summary
+
+### Summary
 
 - **Logistic Regression:**  
-  - Default Recall: 35%  
-  - F1 Score: 31%  
+  - **Accuracy:** 81.7%  
+  - **Default Recall:** 35%  
+  - **Default F1 Score:** 0.31  
+  Achieves moderate overall accuracy with a modest recall and F1 score.
 
 - **Random Forest:**  
-  - Default Recall: 18%  
-  - F1 Score: 25%  
+  - **Accuracy:** 86.9%  
+  - **Default Recall:** 18%  
+  - **Default F1 Score:** 0.25  
+  Shows high overall accuracy but very low default recall and F1 score.
 
-- **XGBoost:**  
-  - Default Recall: 28%  
-  - F1 Score: 30%  
+- **Untuned XGBoost:**  
+  - **Accuracy:** 84.6%  
+  - **Default Recall:** 28%  
+  - **Default F1 Score:** 0.30  
+  Performs similarly to Logistic Regression in overall accuracy with slightly lower default recall and F1 score.
 
 - **Tuned XGBoost:**  
-  - Default Recall: 58%  
-  - F1 Score: 36%
+  - **Accuracy:** 76.0%  
+  - **Default Recall:** 58%  
+  - **Default F1 Score:** 0.36  
+  Despite lower overall accuracy, it delivers the highest default recall and best F1 score, making it the best model when the primary goal is to detect as many defaults as possible.
 
 **Conclusion:**  
 The **Tuned XGBoost model** is the best choice for classifying defaults because it significantly improves the detection of default cases (58% recall) while maintaining a better balance between precision and recall (F1 score of 36%), which is critical for imbalanced classification tasks.

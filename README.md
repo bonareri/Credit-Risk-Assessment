@@ -190,7 +190,10 @@ The table below provides summary statistics for the numerical features in the da
   - Recall (Defaulters): **0.56** (Low)  
   - F1-score (Defaulters): **0.32**
 
-![image1](https://github.com/user-attachments/assets/bf3b3ae5-d588-4183-a24d-fbb012c1f566) ![image2](https://github.com/user-attachments/assets/20984e21-abb1-4acb-9dc0-c0d5e86f1fa9)
+<div style="display: flex;">
+  <img src="https://github.com/user-attachments/assets/bf3b3ae5-d588-4183-a24d-fbb012c1f566" style="margin-right: 10px;">
+  <img src="https://github.com/user-attachments/assets/20984e21-abb1-4acb-9dc0-c0d5e86f1fa9">
+</div>
 
 - **Key Issues:**  
   - Logistic Regression is not performing well for Class 1.

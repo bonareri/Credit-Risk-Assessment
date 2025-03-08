@@ -136,7 +136,7 @@ The table below provides summary statistics for the numerical features in the da
 ## 6. Model Development  
 
 - **Baseline Models:**  
-  - I started with **Logistic Regression** to establish a simple benchmark.    
+  - I started with **Logistic Regression** to establish a simple benchmark. 
 
 - **Advanced Models:**  
   - **Random Forest** helped improve predictive performance through ensemble learning.  
@@ -149,48 +149,64 @@ The table below provides summary statistics for the numerical features in the da
   - I compared models based on **accuracy, precision, recall, F1-score, and AUC-ROC**.  
   - Since class imbalance was a concern, I paid close attention to **recall and F1-score** to ensure the minority class was well predicted.
  
-### Model Evaluation Summary
+## 7. Model Evaluation Summary  
 
-Below is a summary of various models for classifying defaults, with a focus on recall and F1 score for the default (minority) class:
+### Baseline Model: Logistic Regression 
+- **Initial Performance:**  
+  - Accuracy: **73%**  
+  - Recall (Defaulters): **0.54** (Low)  
+  - F1-score (Defaulters): **0.31**  
+- **Key Issues:**  
+  - Class imbalance led to poor recall for defaulters.  
+  - Majority class (non-defaulters) was predicted well, but many defaulters were missed.  
 
-| Model              | Accuracy | Default Precision | Default Recall | Default F1-score |
-|--------------------|----------|-------------------|----------------|------------------|
-| Logistic Regression| 81.7%    | 0.28              | 0.35           | 0.31             |
-| Random Forest      | 86.9%    | 0.37              | 0.18           | 0.25             |
-| XGBoost            | 84.6%    | 0.32              | 0.28           | 0.30             |
-| Tuned XGBoost      | 76.0%    | 0.26              | 0.58           | 0.36             |
+- **Improvements Applied:**  
+  - Applied **class weighting (`balanced`)**.  
+  - Used **SMOTE** to oversample the minority class.  
+  - Tuned **C** and solver (`saga`).  
 
+- **Final Performance (After Tuning & SMOTE):**  
+  - Recall (Defaulters): **0.70** ✅  
+  - F1-score (Defaulters): **0.34**  
+  - Accuracy: **68%** (Reduced but recall improved)  
 
-### Summary
+---
 
-- **Logistic Regression:**  
-  - **Accuracy:** 81.7%  
-  - **Default Recall:** 35%  
-  - **Default F1 Score:** 0.31  
-  Achieves moderate overall accuracy with a modest recall and F1 score.
+### Advanced Models & Performance 
 
-- **Random Forest:**  
-  - **Accuracy:** 86.9%  
-  - **Default Recall:** 18%  
-  - **Default F1 Score:** 0.25  
-  Shows high overall accuracy but very low default recall and F1 score.
+| Model        | Accuracy | Precision (Defaulters) | Recall (Defaulters) | F1-score (Defaulters) |
+|-------------|----------|-----------------------|---------------------|----------------------|
+| **Logistic Regression (Tuned)** | 68% | 0.22 | **0.70** | 0.34 |
+| **Random Forest** | 84% | 0.31 | 0.29 | 0.30 |
+| **XGBoost** | 83% | 0.30 | 0.33 | 0.32 |
+| **LightGBM** | **87%** | **0.38** | 0.16 | 0.23 |
 
-- **Untuned XGBoost:**  
-  - **Accuracy:** 84.6%  
-  - **Default Recall:** 28%  
-  - **Default F1 Score:** 0.30  
-  Performs similarly to Logistic Regression in overall accuracy with slightly lower default recall and F1 score.
+- **Observations:**  
+  - **Random Forest & XGBoost:** Higher accuracy (**83-84%**), but **low recall (~0.30)**.  
+  - **LightGBM:** Best accuracy (**87%**), but struggled with recall (**0.16**).  
+  - **Logistic Regression (Tuned):** Lower accuracy (**68%**) but best recall (**0.70**), making it the most effective for capturing defaulters.  
 
-- **Tuned XGBoost:**  
-  - **Accuracy:** 76.0%  
-  - **Default Recall:** 58%  
-  - **Default F1 Score:** 0.36  
-  Despite lower overall accuracy, it delivers the highest default recall and best F1 score, making it the best model when the primary goal is to detect as many defaults as possible.
+---
 
-**Conclusion:**  
-The **Tuned XGBoost model** is the best choice for classifying defaults because it significantly improves the detection of default cases (58% recall) while maintaining a better balance between precision and recall (F1 score of 36%), which is critical for imbalanced classification tasks.
+### Hyperparameter Tuning & Techniques Applied**  
+- **Logistic Regression:** `C`, `class_weight`, `solver`  
+- **Random Forest & XGBoost:** `n_estimators`, `max_depth`, `min_samples_split`, `learning_rate`  
+- **LightGBM:** `boosting_type`, `num_leaves`, `feature_fraction`, `learning_rate`  
 
+---
 
+### Final Model Selection & Next Steps 
+- **Best Model for Defaulter Prediction:** ✅ **Logistic Regression (Tuned)**  
+  - Highest **recall (0.70)** ensures most defaulters are captured.  
+  - Performance improved with **SMOTE + class weighting**.  
+  - Lower accuracy but better at detecting the minority class.  
+
+- **Next Steps:**  
+  - Explore **ensemble learning (stacking models)** for better trade-offs.  
+  - Implement **cost-sensitive learning** for further improvements.  
+  - Test **threshold tuning** for better precision-recall balance.  
+
+---
 ## 7. Future Improvements
 
 - Implementing deep learning models for enhanced prediction accuracy.

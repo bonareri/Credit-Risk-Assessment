@@ -211,14 +211,14 @@ The table below provides summary statistics for the numerical features in the da
 
 | Metric      | Class 0 (No Default) | Class 1 (Default) | Macro Avg | Weighted Avg |
 |-------------|----------------------|-------------------|-----------|--------------|
-| Precision   | 0.93                 | 0.24              | 0.58      | 0.85         |
-| Recall      | 0.75                 | 0.58              | 0.67      | 0.73         |
-| F1-score    | 0.83                 | 0.34              | 0.58      | 0.78         |
+| Precision   | 0.94                 | 0.22              | 0.58      | 0.85         |
+| Recall      | 0.71                 | 0.63              | 0.67      | 0.70         |
+| F1-score    | 0.81                 | 0.33              | 0.57      | 0.75         |
 
 <table>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/d68057c2-75de-4d5d-858c-a66a2db86e97" width="500"></td>
-    <td><img src="https://github.com/user-attachments/assets/6f57b05f-20a0-4e58-a816-755805d59173" width="500"></td>
+    <td><img src="https://github.com/user-attachments/assets/6514fed8-083b-4c1f-b39b-7c5c9833516c" width="500"></td>
+    <td><img src="https://github.com/user-attachments/assets/167a58dd-95ec-417f-84a5-fd8e0ab1956a" width="500"></td>
   </tr>
 </table>
 
@@ -227,14 +227,14 @@ The table below provides summary statistics for the numerical features in the da
 
 | Metric      | Class 0 (No Default) | Class 1 (Default) | Macro Avg | Weighted Avg |
 |-------------|----------------------|-------------------|-----------|--------------|
-| Precision   | 0.91                 | 0.30              | 0.61      | 0.84         |
-| Recall      | 0.91                 | 0.34              | 0.62      | 0.83         |
-| F1-score    | 0.90                 | 0.32              | 0.61      | 0.84         |
+| Precision   | 0.94                 | 0.22              | 0.58      | 0.85         |
+| Recall      | 0.70                 | 0.64              | 0.67      | 0.69         |
+| F1-score    | 0.80                 | 0.33              | 0.56      | 0.75         |
 
 <table>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/3c21e1d9-bdf4-4454-8e5e-145d712941fe" width="500"></td>
-    <td><img src="https://github.com/user-attachments/assets/52cbc507-65eb-4aa0-bba0-a08f8496687c" width="500"></td>
+    <td><img src="https://github.com/user-attachments/assets/7c0dd563-35b7-4d2d-9a3f-ac3442389295" width="500"></td>
+    <td><img src="https://github.com/user-attachments/assets/c3ff01a0-4a81-4f26-ba22-8b88031c71f7" width="500"></td>
   </tr>
 </table>
 
@@ -243,22 +243,20 @@ The table below provides summary statistics for the numerical features in the da
 
 | Metric      | Class 0 (No Default) | Class 1 (Default) | Macro Avg | Weighted Avg |
 |-------------|----------------------|-------------------|-----------|--------------|
-| Precision   | 0.89                 | 0.40              | 0.65      | 0.84         |
-| Recall      | 0.97                 | 0.13              | 0.55      | 0.88         |
-| F1-score    | 0.93                 | 0.20              | 0.56      | 0.85         |
+| Precision   | 0.91                 | 0.34              | 0.62      | 0.84         |
+| Recall      | 0.93                 | 0.29              | 0.61      | 0.85         |
+| F1-score    | 0.92                 | 0.31              | 0.61      | 0.85         |
 
 <table>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/3c21e1d9-bdf4-4454-8e5e-145d712941fe" width="500"></td>
-    <td><img src="https://github.com/user-attachments/assets/52cbc507-65eb-4aa0-bba0-a08f8496687c" width="500"></td>
+    <td><img src="https://github.com/user-attachments/assets/767af14f-73bb-4039-98f4-79e9a3455660" width="500"></td>
+    <td><img src="https://github.com/user-attachments/assets/674522c2-395b-458f-bac4-b3f8496b8df4" width="500"></td>
   </tr>
 </table>
 
-
-
 ---
 
-### Advanced Models & Performance 
+### Summary Performance 
 
 | Model        | Accuracy | Precision (Defaulters) | Recall (Defaulters) | F1-score (Defaulters) |
 |-------------|----------|-----------------------|---------------------|----------------------|

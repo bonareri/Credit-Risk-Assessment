@@ -206,7 +206,7 @@ The table below provides summary statistics for the numerical features in the da
   - Class imbalance led to poor recall for defaulters.  
   - Majority class (non-defaulters) was predicted well, but many defaulters were missed.  
 
-### Baseline Model: Random Forest
+### Random Forest
 **Classification Report Analysis**
 
 | Metric      | Class 0 (No Default) | Class 1 (Default) | Macro Avg | Weighted Avg |
@@ -221,6 +221,39 @@ The table below provides summary statistics for the numerical features in the da
     <td><img src="https://github.com/user-attachments/assets/6f57b05f-20a0-4e58-a816-755805d59173" width="500"></td>
   </tr>
 </table>
+
+### XGBoost 
+**Classification Report Analysis**
+
+| Metric      | Class 0 (No Default) | Class 1 (Default) | Macro Avg | Weighted Avg |
+|-------------|----------------------|-------------------|-----------|--------------|
+| Precision   | 0.91                 | 0.30              | 0.61      | 0.84         |
+| Recall      | 0.91                 | 0.34              | 0.62      | 0.83         |
+| F1-score    | 0.90                 | 0.32              | 0.61      | 0.84         |
+
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/3c21e1d9-bdf4-4454-8e5e-145d712941fe" width="500"></td>
+    <td><img src="https://github.com/user-attachments/assets/52cbc507-65eb-4aa0-bba0-a08f8496687c" width="500"></td>
+  </tr>
+</table>
+
+### XGBoost Tuned
+**Classification Report Analysis**
+
+| Metric      | Class 0 (No Default) | Class 1 (Default) | Macro Avg | Weighted Avg |
+|-------------|----------------------|-------------------|-----------|--------------|
+| Precision   | 0.89                 | 0.40              | 0.65      | 0.84         |
+| Recall      | 0.97                 | 0.13              | 0.55      | 0.88         |
+| F1-score    | 0.93                 | 0.20              | 0.56      | 0.85         |
+
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/3c21e1d9-bdf4-4454-8e5e-145d712941fe" width="500"></td>
+    <td><img src="https://github.com/user-attachments/assets/52cbc507-65eb-4aa0-bba0-a08f8496687c" width="500"></td>
+  </tr>
+</table>
+
 
 
 ---

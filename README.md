@@ -123,6 +123,16 @@ The table below provides summary statistics for the numerical features in the da
 - **Credit Score** (-0.034) shows a weak negative correlation, meaning higher scores slightly reduce default probability.  
 - **Most correlations are weak to moderate**, implying that **default is influenced by multiple factors rather than a single one**.
 
+![image](https://github.com/user-attachments/assets/81ce3551-bc33-46b4-879d-b75ab026f97f)
+
+![image](https://github.com/user-attachments/assets/8e71c06e-ed07-4066-8956-1eca35998ad3)
+
+![image](https://github.com/user-attachments/assets/188d25e5-3f59-4cfa-b4d1-c1216b38a9da)
+
+![image](https://github.com/user-attachments/assets/da9944ed-bc44-4101-a997-b5374b12b4b4)
+
+![image](https://github.com/user-attachments/assets/49351ed3-f347-402b-9ce6-ce0d9ec76074)
+
 ### Data Preprocessing
 
 - **Class Imbalance Handling:**  

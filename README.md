@@ -185,18 +185,20 @@ The table below provides summary statistics for the numerical features in the da
 ## 7. Model Evaluation Summary  
 
 ### Baseline Model: Logistic Regression 
-- **Initial Performance:**  
-  - Accuracy: **72%**  
-  - Recall (Defaulters): **0.56** (Low)  
-  - F1-score (Defaulters): **0.32**
+**Classification Report Analysis**
+
+| Metric      | Class 0 (No Default) | Class 1 (Default) | Macro Avg | Weighted Avg |
+|-------------|----------------------|-------------------|-----------|--------------|
+| Precision   | 0.93                 | 0.22              | 0.57      | 0.84         |
+| Recall      | 0.74                 | 0.56              | 0.65      | 0.72         |
+| F1-score    | 0.82                 | 0.32              | 0.57      | 0.76         |
 
 <table>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/bf3b3ae5-d588-4183-a24d-fbb012c1f566" width="300"></td>
-    <td><img src="https://github.com/user-attachments/assets/20984e21-abb1-4acb-9dc0-c0d5e86f1fa9" width="300"></td>
+    <td><img src="https://github.com/user-attachments/assets/bf3b3ae5-d588-4183-a24d-fbb012c1f566" width="500"></td>
+    <td><img src="https://github.com/user-attachments/assets/20984e21-abb1-4acb-9dc0-c0d5e86f1fa9" width="500"></td>
   </tr>
 </table>
-
 
 - **Key Issues:**  
   - Logistic Regression is not performing well for Class 1.
@@ -204,15 +206,22 @@ The table below provides summary statistics for the numerical features in the da
   - Class imbalance led to poor recall for defaulters.  
   - Majority class (non-defaulters) was predicted well, but many defaulters were missed.  
 
-- **Improvements Applied:**  
-  - Applied **class weighting (`balanced`)**.  
-  - Used **SMOTE** to oversample the minority class.  
-  - Tuned **C** and solver (`saga`).  
+### Baseline Model: Random Forest
+**Classification Report Analysis**
 
-- **Final Performance (After Tuning & SMOTE):**  
-  - Recall (Defaulters): **0.70** ✅  
-  - F1-score (Defaulters): **0.34**  
-  - Accuracy: **68%** (Reduced but recall improved)  
+| Metric      | Class 0 (No Default) | Class 1 (Default) | Macro Avg | Weighted Avg |
+|-------------|----------------------|-------------------|-----------|--------------|
+| Precision   | 0.93                 | 0.24              | 0.58      | 0.85         |
+| Recall      | 0.75                 | 0.58              | 0.67      | 0.73         |
+| F1-score    | 0.83                 | 0.34              | 0.58      | 0.78         |
+
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/d68057c2-75de-4d5d-858c-a66a2db86e97" width="500"></td>
+    <td><img src="https://github.com/user-attachments/assets/6f57b05f-20a0-4e58-a816-755805d59173" width="500"></td>
+  </tr>
+</table>
+
 
 ---
 

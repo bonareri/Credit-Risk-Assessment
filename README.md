@@ -123,15 +123,38 @@ The table below provides summary statistics for the numerical features in the da
 - **Credit Score** (-0.034) shows a weak negative correlation, meaning higher scores slightly reduce default probability.  
 - **Most correlations are weak to moderate**, implying that **default is influenced by multiple factors rather than a single one**.
 
-![image](https://github.com/user-attachments/assets/81ce3551-bc33-46b4-879d-b75ab026f97f)
-
 ![image](https://github.com/user-attachments/assets/8e71c06e-ed07-4066-8956-1eca35998ad3)
+
+####  1️⃣ Key Observations  
+- Defaulters (Default = 1) **tend to have lower credit scores** compared to non-defaulters.  
+- The median credit score for defaulters is significantly lower than that of non-defaulters.  
+- There is a wider spread of credit scores among non-defaulters, indicating **higher variability** in their creditworthiness.
+
+#### 2️⃣ Business Implications  
+- **Credit Score as a Risk Indicator:**  
+  - A **lower credit score increases the likelihood of default**.  
+  - Lending institutions should **prioritize credit score thresholds** when assessing loan applications.   
 
 ![image](https://github.com/user-attachments/assets/188d25e5-3f59-4cfa-b4d1-c1216b38a9da)
 
+#### 🔍 Observations  
+- **Defaulters (Red) cluster in the top-left**, indicating higher defaults among **low-income, high-loan** borrowers.  
+- **Non-defaulters (Green) are more evenly spread**, with many having **higher incomes and lower loan amounts**.
+
+#### 💡 Business Implications  
+- **Higher risk** for low-income borrowers requesting large loans.  
+- **Stricter eligibility criteria & income-based loan caps** can help mitigate default risk.
+
 ![image](https://github.com/user-attachments/assets/da9944ed-bc44-4101-a997-b5374b12b4b4)
 
+**Insights**
+- Higher DTI ratios correlate with increased default risk.
+- Borrowers with a DTI ratio > 0.7 are more likely to default.
+
 ![image](https://github.com/user-attachments/assets/49351ed3-f347-402b-9ce6-ce0d9ec76074)
+
+**Insights**
+- Unemployed borrowers have a higher default rate than salaried employees. - Full-time employees are at a lower risk of default.
 
 ### Data Preprocessing
 
@@ -163,10 +186,15 @@ The table below provides summary statistics for the numerical features in the da
 
 ### Baseline Model: Logistic Regression 
 - **Initial Performance:**  
-  - Accuracy: **73%**  
-  - Recall (Defaulters): **0.54** (Low)  
-  - F1-score (Defaulters): **0.31**  
+  - Accuracy: **72%**  
+  - Recall (Defaulters): **0.56** (Low)  
+  - F1-score (Defaulters): **0.32**
+
+  ![image](https://github.com/user-attachments/assets/bf3b3ae5-d588-4183-a24d-fbb012c1f566)
+
 - **Key Issues:**  
+  - Logistic Regression is not performing well for Class 1.
+  - A recall of 56% for Class 1 means nearly half of the positive cases are missed.
   - Class imbalance led to poor recall for defaulters.  
   - Majority class (non-defaulters) was predicted well, but many defaulters were missed.  
 

@@ -260,35 +260,39 @@ The table below provides summary statistics for the numerical features in the da
 
 | Model        | Accuracy | Precision (Defaulters) | Recall (Defaulters) | F1-score (Defaulters) |
 |-------------|----------|-----------------------|---------------------|----------------------|
-| **Logistic Regression (Tuned)** | 68% | 0.22 | **0.70** | 0.34 |
-| **Random Forest** | 84% | 0.31 | 0.29 | 0.30 |
-| **XGBoost** | 83% | 0.30 | 0.33 | 0.32 |
-| **LightGBM** | **87%** | **0.38** | 0.16 | 0.23 |
+| **Logistic Regression** | 72% | 0.22 | 0.56 | 0.32 |
+| **Random Forest** | 70% | 0.22 | 0.63 | 0.33 |
+| **XGBoost** | 69% | 0.22 | 0.64 | 0.33 |
+| **XGBoost Tuned** | 85% | 0.34 | 0.29 | 0.31 |
 
-- **Observations:**  
-  - **Random Forest & XGBoost:** Higher accuracy (**83-84%**), but **low recall (~0.30)**.  
-  - **LightGBM:** Best accuracy (**87%**), but struggled with recall (**0.16**).  
-  - **Logistic Regression (Tuned):** Lower accuracy (**68%**) but best recall (**0.70**), making it the most effective for capturing defaulters.  
+### Summary of Observations  
 
----
+#### Accuracy:  
+- **XGBoost Tuned** has the highest accuracy at **85%**, significantly outperforming the other models (which range between **69%-72%**).  
+- However, since the **dataset is imbalanced**, accuracy alone is not a reliable metric for defaulter detection.  
 
-### Hyperparameter Tuning & Techniques Applied**  
-- **Logistic Regression:** `C`, `class_weight`, `solver`  
-- **Random Forest & XGBoost:** `n_estimators`, `max_depth`, `min_samples_split`, `learning_rate`  
-- **LightGBM:** `boosting_type`, `num_leaves`, `feature_fraction`, `learning_rate`  
+#### Precision (Defaulters):  
+- Precision measures how many of the predicted defaulters are actually defaulters.  
+- All models (except **XGBoost Tuned**) have a **low precision of 0.22**, meaning many false positives.  
+- **XGBoost Tuned improves precision to 0.34**, which is better at reducing false alarms but may miss actual defaulters.  
 
----
+#### Recall (Defaulters):  
+- Recall is crucial for defaulter detection as it shows how many actual defaulters are correctly identified.  
+- **XGBoost (0.64) and Random Forest (0.63) have the highest recall**, meaning they detect more defaulters but at the cost of more false positives.  
+- **XGBoost Tuned has the lowest recall (0.29)**, meaning it misses many actual defaulters.  
 
-### Final Model Selection & Next Steps 
-- **Best Model for Defaulter Prediction:** ✅ **Logistic Regression (Tuned)**  
-  - Highest **recall (0.70)** ensures most defaulters are captured.  
-  - Performance improved with **SMOTE + class weighting**.  
-  - Lower accuracy but better at detecting the minority class.  
+#### F1-Score (Defaulters):  
+- **F1-score balances precision and recall.**  
+- **Logistic Regression (0.32), Random Forest (0.33), and XGBoost (0.33)** have similar F1-scores.  
+- **XGBoost Tuned (0.31) has a slightly lower F1-score**, indicating an imbalanced trade-off between precision and recall.  
 
-- **Next Steps:**  
-  - Explore **ensemble learning (stacking models)** for better trade-offs.  
-  - Implement **cost-sensitive learning** for further improvements.  
-  - Test **threshold tuning** for better precision-recall balance.  
+#### Best Model for Detecting Defaulters:  
+- **XGBoost is the best choice** due to its **highest recall (0.64)**, ensuring more defaulters are correctly identified.  
+- **Random Forest is a close alternative**, with **recall (0.63)** and a similar F1-score (0.33).  
+- **XGBoost Tuned sacrifices recall (0.29) for better precision (0.34)** but misses too many defaulters, making it less suitable for this objective.  
+
+#### Conclusion:  
+Since the goal is to **detect the highest number of defaulters**, **XGBoost is the best model** due to its **high recall (0.64)**, ensuring more defaulters are correctly identified.  
 
 ---
 ## 7. Future Improvements
